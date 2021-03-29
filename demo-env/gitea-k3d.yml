@@ -1,0 +1,18 @@
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: gitea-ingress
+  namespace: gitea
+spec:
+  rules:
+  - host: gitea.10-0-10-160.sslip.io
+    http:
+      paths:
+      - backend:
+          service:
+            name: gitea-http
+            port:
+              number: 3000
+        path: /
+        pathType: Prefix

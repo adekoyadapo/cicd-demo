@@ -1,0 +1,41 @@
+# Values for gitlab/gitlab chart on GKE
+global:
+  edition: ce
+  hosts:
+    domain: sslip.io
+    https: true
+    gitlab: {}
+    externalIP: 10.0.10.160 #Replace by your Nginx Ingress ExternalIP
+    ssh: ~
+    gitlab:
+      name: gitlab.10-0-10-160.sslip.io 
+      https: true
+    registry:
+      name: registry.10-0-10-160.sslip.io
+      https: true
+    minio:
+      name: gitlab-minio.10-0-10-160.sslip.io
+      https: true
+  minio:
+    enabled: true
+  ## doc/charts/globals.md#configure-ingress-settings
+  ingress:
+    configureCertmanager: false
+    class: "traefik"
+    enabled: true
+    tls:
+      enabled: true
+certmanager:
+  install: false
+nginx-ingress:
+  enabled: false
+prometheus:
+  install: true
+redis:
+  install: true
+postgresql:
+  install: true
+gitlab-runner:
+  install: true
+registry:
+  enable: true

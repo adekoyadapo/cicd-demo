@@ -1,0 +1,11 @@
+enableInsecureLogin: true
+service:
+  externalPort: 9090
+ingress:
+  enabled: true
+  hosts: 
+    - dashboard.10-0-0-160.sslip.io
+  paths: 
+    - /
+  annotations:
+    kubernetes.io/ingress.class: traefik
